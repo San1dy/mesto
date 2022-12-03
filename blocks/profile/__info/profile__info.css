@@ -19,14 +19,14 @@
 @media screen and (max-width:768px){
     .profile__info{
         grid-template-columns: 200px 18px;
-        grid-template-rows: 26px 14px;   
+        grid-template-rows: 26px 14px;
     }
     
 }
 @media screen and (max-width:640px){
     .profile__info{
         grid-template-columns: 189px 18px;
-        grid-template-rows: 26px 14px; 
+        grid-template-rows: 26px 14px;
         grid-gap:10px 14px;
         grid-template-areas:
         "name edit"
