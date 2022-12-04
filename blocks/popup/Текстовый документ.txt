@@ -1,0 +1,22 @@
+function visibilityPopup(){
+    popup.classList.remove('popup_visibility');
+	nameInput.value= name.textContent;
+	jobInput.value = description.textContent;
+}
+
+function novisibilityPopup(){
+	popup.classList.add('popup_visibility');
+}
+
+
+function handleFormSubmit (evt) {
+	evt.preventDefault();
+	name.textContent = nameInput.value;
+	description.textContent = jobInput.value;
+	novisibilityPopup();
+}
+
+
+editButton.addEventListener('click', visibilityPopup);
+popupClose.addEventListener('click', novisibilityPopup);
+formElement.addEventListener('submit', handleFormSubmit)
