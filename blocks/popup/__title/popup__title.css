@@ -1,4 +1,4 @@
-.popup__text_redact{
+.popup__title{
     margin:0;
     padding:0;
     font-family: 'Inter';
@@ -12,7 +12,7 @@
 }
 
 @media screen and (max-width: 660px) {
-	.popup__text_redact{
+	.popup__title{
 		font-size:18px;
 		line-height:22px;
 margin-bottom: 75px;
