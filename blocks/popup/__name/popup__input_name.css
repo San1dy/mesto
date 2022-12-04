@@ -1,4 +1,4 @@
-.popup__text_input-description{
+.popup__input_name{
     padding:0;
     padding-bottom: 10px;
     width:100%;
@@ -12,4 +12,8 @@
     font-size: 14px;
     line-height: 17px;
     color:#000;
+}
+
+@media screen and (max-width:660px){
+	
 }
