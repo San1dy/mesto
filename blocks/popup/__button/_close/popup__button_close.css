@@ -1,9 +1,9 @@
-.popup__close{
+.popup__button_close{
     margin:0;
     padding:0;
     cursor: pointer;
     position: absolute;
-    background: transparent url(../../../images/Close.png);
+    background: transparent url(../../../../images/Close.png);
     width: 32px;
     height: 32px;
     top:-40px;
@@ -14,12 +14,12 @@
     transition: all 0.4s ease-in-out;
 }
 
-.popup__close:hover{
+.popup__button_close:hover{
     opacity:0.6;
     cursor: pointer;
 }
 @media screen and (max-width:660px){
-	.popup__close{
+	.popup__button_close{
 		width:20px;
 		height:20px;
 		top:-36px;

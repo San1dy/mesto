@@ -1,23 +1,23 @@
 let content = document.querySelector('.content');
 let editButton = content.querySelector('.profile__editbutton');
-let popupClose = document.querySelector('.popup__close');
+let popupClose = document.querySelector('.popup__button_close');
 let popup = document.querySelector('.popup');
 let formElement = document.querySelector('.popup__form');
-let nameInput = formElement.querySelector('.popup__input_username');
-let jobInput = formElement.querySelector('.popup__input_description');
+let nameInput = formElement.querySelector('.popup__text_input-username');
+let jobInput = formElement.querySelector('.popup__text_input-description');
 let name = content.querySelector('.profile__name');
 let description = content.querySelector('.profile__text');
 let popupSumbit = document.querySelector('.popup__submite');
 
 
 function visibilityPopup(){
-    popup.classList.remove('popup__visibility');
+    popup.classList.remove('popup_visibility');
 	nameInput.value= name.textContent;
 	jobInput.value = description.textContent;
 }
 
 function novisibilityPopup(){
-	popup.classList.add('popup__visibility');
+	popup.classList.add('popup_visibility');
 }
 
 
