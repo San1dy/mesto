@@ -1,26 +1,27 @@
-let content = document.querySelector('.content');
-let editButton = content.querySelector('.profile__editbutton');
-let popupClose = document.querySelector('.popup__close');
-let popup = document.querySelector('.popup');
-let formElement = document.querySelector('.popup__form');
-let name = content.querySelector('.profile__name');
-let description = content.querySelector('.profile__text');
-let popupSumbit = document.querySelector('.popup__submite');
+const content = document.querySelector('.content');
+const editButton = content.querySelector('.profile__edit-button');
+const popupClose = document.querySelector('.popup__close');
+const popup = document.querySelector('.popup');
+const formElement = document.querySelector('.popup__form');
+const name = content.querySelector('.profile__name');
+const description = content.querySelector('.profile__text');
 
-let nameInput = document.querySelector('.popup__input_name');
-let jobInput = document.querySelector('.popup__input_job');
+let nameInput = document.querySelector('.popup__input_type_name');
+let jobInput = document.querySelector('.popup__input_type_job');
 
+
+//Открытие попапа
 function visibilityPopup(){
-    popup.classList.remove('popup_visibility');
+  popup.classList.add('popup_visibility');
 	nameInput.value = name.textContent;
 	jobInput.value = description.textContent;
 }
-
+//закрытие попапа
 function novisibilityPopup(){
-	popup.classList.add('popup_visibility');
+	popup.classList.remove('popup_visibility');
 }
 
-
+//сохранения данных в попапе
 function handleFormSubmit (evt) {
 	evt.preventDefault();
 	name.textContent = nameInput.value;

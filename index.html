@@ -1,111 +1,91 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mesto</title>
+	<link rel="stylesheet" href="./pages/index.css">
 </head>
 <body class="body">
-    <div class="page">
-        <header class="header">
-            <img src="./images/header__logo.svg" class="header__logo" alt="Лого сайта">
-        </header>
-        
-        
-        
-        <main class="content">
-            
-            <section class="profile">
-                <div class="profile__ellipse">
-                    <img class="profile__avatar" src="./images/avatar.png" alt="Аватар пользователя">
-                </div>
-                <div class="profile__info">
-                    <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button type="button" class="profile__editbutton"></button>
-                    <p class="profile__text">Исследователь океана</p>
-                </div>
-                <button type="button" class="profile__addbutton"></button>
-            </section>
-            
-            
-            <section class="elements">
-                <div class="element">
-                    <img class="element__mask" src="./images/images2.jpg" alt="Карачаевск">
-                    <div class="element__rectangle">
-                        <h2 class ="element__text">Долина огня</h2>
-                        <img class="element__group" src="./images/group.svg" alt="иконка избранного">
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__mask" src="./images/images3.jpg" alt="Гора Эльбрус">
-                    <div class="element__rectangle">
-                        <h2 class ="element__text">Горы Урала</h2>
-                        <img class="element__group" src="./images/group.svg" alt="иконка избранного">
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__mask" src="./images/images5.jpg" alt="Домбай">
-                    <div class="element__rectangle">
-                        <h2 class ="element__text">Дюны Броули</h2>
-                        <img class="element__group" src="./images/group.svg" alt="иконка избранного">
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__mask" src="./images/images6.jpg" alt="Карачаевск">
-                    <div class="element__rectangle">
-                        <h2 class ="element__text">Бич Парк</h2>
-                        <img class="element__group" src="./images/group.svg" alt="иконка избранного">
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__mask" src="./images/images2.jpg" alt="Гора Эльбрус">
-                    <div class="element__rectangle">
-                        <h2 class ="element__text">Долина огня</h2>
-                        <img class="element__group" src="./images/group.svg" alt="иконка избранного">
-                    </div>
-                </div>
-                <div class="element">
-                    <img class="element__mask" src="./images/images5.jpg" alt="Домбай">
-                    <div class="element__rectangle">
-                        <h2 class ="element__text">Дюны Броули</h2>
-                        <img class="element__group" src="./images/group.svg" alt="иконка избранного">
-                    </div>
-                </div>
-            </section>
-        </main>
-        
-        
-        
-        <footer class="footer">
-            <p class="footer__text">&copy;&nbsp;2022 Mesto Russia</p>
-        </footer>
-        
-        
-        
-        <div class="popup popup_visibility">
-            <div class="popup__container">
-                <button type="button" class="popup__close"></button>
-                <form action="index.html" method="get" class="popup__form" novalidate>
-                    <h2 class="popup__title">Редактировать профиль</h2>
-                    <label  class="popup__label" >
-                        <input id="name"  type="text" value="" class="popup__input popup__input_name"
-                               name="name" minlength="2" maxlength="20" required placeholder="Жак-Ив Кусто">
-                        <span class="popup__span"></span>
-                    </label>
-                    <label  class="popup__label" >
-                        <input id="job" type="text"  value="" class ="popup__input popup__input_job" name="job" minlength="2" maxlength="40" required placeholder="Исследователь океана">
-                         <span class="popup__span"></span>
-                    </label>
-                    <button type="submit" class="popup__submit" aria-label="Сохранить">Сохранить</button>
-                </form>
-            </div>
+	<div class="page">
+  	<header class="header">
+  		<img src="./images/header__logo.svg" class="header__logo" alt="Лого сайта">
+  	</header>
+    <main class="content">
+      <section class="profile">
+        <img class="profile__avatar" src="./images/avatar.png" alt="Аватар пользователя">
+        <div class="profile__info">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button type="button" class="profile__edit-button"></button>
+          <p class="profile__text">Исследователь океана</p>
         </div>
-        
+        <button type="button" class="profile__add-button"></button>
+      </section>
+      <section class="elements">
+      	<article class="element">
+        	<img class="element__mask" src="./images/images2.jpg" alt="Долина огня">
+          <div class="element__rectangle">
+          	<h2 class ="element__text">Долина огня</h2>
+          	<button type="button" class="element__group"></button>
+          </div>
+        </article>
+        <article class="element">
+        	<img class="element__mask" src="./images/images3.jpg" alt="Гора Эльбрус">
+        	<div class="element__rectangle">
+        		<h2 class ="element__text">Горы Урала</h2>
+        		<button type="button" class="element__group"></button>
+        	</div>
+        </article>
+        <article class="element">
+        	<img class="element__mask" src="./images/images5.jpg" alt="Домбай">
+        	<div class="element__rectangle">
+        		<h2 class ="element__text">Дюны Броули</h2>
+        		<button type="button" class="element__group"></button>
+        	</div>
+        </article>
+        <article class="element">
+        	<img class="element__mask" src="./images/images6.jpg" alt="Карачаевск">
+        	<div class="element__rectangle">
+        		<h2 class ="element__text">Бич Парк</h2>
+        		<button type="button" class="element__group"></button>
+        	</div>
+        </article>
+        <article class="element">
+        	<img class="element__mask" src="./images/images2.jpg" alt="Гора Эльбрус">
+        	<div class="element__rectangle">
+        		<h2 class ="element__text">Долина огня</h2>
+        		<button type="button" class="element__group"></button>
+        	</div>
+        </article>
+        <article class="element">
+        	<img class="element__mask" src="./images/images5.jpg" alt="Домбай">
+        	<div class="element__rectangle">
+        		<h2 class ="element__text">Дюны Броули</h2>
+        		<button type="button" class="element__group"></button>
+        	</div>
+        </article>
+      </section>
+    </main>
+   	<footer class="footer">
+    	<p class="footer__text">&copy;&nbsp;2022 Mesto Russia</p>
+    </footer>
+    <div class="popup ">
+    	<div class="popup__container">
+      	<button type="button" class="popup__close"></button>
+        <form action="index.html" method="get" class="popup__form" name="форма попапа" novalidate>
+        	<h2 class="popup__title">Редактировать профиль</h2>
+          <label  class="popup__label" >
+          	<input id="name"  type="text" value="" class="popup__input popup__input_type_name"
+                               name="name" minlength="2" maxlength="20" required placeholder="Жак-Ив Кусто">
+                    </label>
+          <label  class="popup__label" >
+          	<input id="job" type="text"  value="" class ="popup__input popup__input_type_job" name="job" minlength="2" maxlength="40" required placeholder="Исследователь океана">
+          </label>
+          <button type="submit" class="popup__submit" aria-label="Сохранить">Сохранить</button>
+        </form>
+      </div>
     </div>
-<script src="js/scripts.js"></script>
+  </div>
+	<script src="js/scripts.js"></script>
 </body>
-
-
-
 </html>
