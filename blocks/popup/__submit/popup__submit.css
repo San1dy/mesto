@@ -15,7 +15,7 @@
   line-height: 22px;
 	font-family: 'Inter';
   text-align: center;
-  transition: all 0.4s ease-in-out;  
+  transition: all 0.4s ease-in-out;
 	margin-top: 18px;
 }
 .popup__submit: hover {
