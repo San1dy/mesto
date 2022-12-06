@@ -13,8 +13,8 @@
 }
 
 .element__group: hover {
+	cursor: pointer;
 	opacity:0.5;
-  cursor: pointer;
 }
 
 .element__group: active {
