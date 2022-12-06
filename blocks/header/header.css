@@ -1,5 +1,5 @@
 .header {
-	max-width:880px;
+  max-width:880px;
   width: calc(100% - 2 * 19px);
   display:flex;
   margin: 0px;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (max-width:768px) {
-	.header {
-  	width:100%;
-    }
+  .header {
+    width:100%;
+  }
 }

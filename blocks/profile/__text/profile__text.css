@@ -8,23 +8,23 @@
   line-height: 22px;
   color:#FFF;
   position:relative;
-	margin-top: 5px;
+  margin-top: 5px;
   grid-area:text;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (max-width:768px) {
   .profile__text {
-  	font-size: 14px;
+    font-size: 14px;
     line-height: 17px;
-		margin-top: 3px;
+    margin-top: 3px;
   }
 }
 
 @media screen and (max-width:640px) {
   .profile__text {
-  	text-align: center; 
+    text-align: center; 
   }
 }

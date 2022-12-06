@@ -5,7 +5,7 @@
   grid-template-columns: 300px 24px;
   grid-template-rows: 39px 18px;
   grid-template-areas:
-  	"name edit"
+    "name edit"
     "text text";
   align-items: center;
   box-sizing: border-box;
@@ -16,17 +16,17 @@
 
 @media screen and (max-width:768px) {
   .profile__info {
-  	grid-template-columns: 200px 18px;
+    grid-template-columns: 200px 18px;
     grid-template-rows: 26px 14px;
   }
 }
 
 @media screen and (max-width:640px) {
   .profile__info {
-  	grid-template-columns: 189px 18px;
+    grid-template-columns: 189px 18px;
     grid-gap:10px 14px;
     grid-template-areas:
-    	"name edit"
+      "name edit"
       "text .";
     margin-left: 28px;
   }  

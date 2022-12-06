@@ -1,8 +1,8 @@
 .element__rectangle {
-	display: flex;
+  display: flex;
   justify-content: space-between;
   padding-left: 21px;
   padding-right: 20px;
-	margin: 0px 20px 0 22px;
-	padding: 0 0 26px;
+  margin: 0px 20px 0 22px;
+  padding: 0 0 26px;
 }

@@ -12,13 +12,15 @@
   grid-area:edit;
   align-self: flex-end; 
 }
+
 .profile__edit-button: hover {
   opacity: 0.6;
   cursor: pointer;
 }
+
 @media screen and (max-width:768px) {
   .profile__edit-button {
-  	min-width: 18px;
+    min-width: 18px;
     min-height: 18px;
-    }
+  }
 }
