@@ -12,21 +12,21 @@ let jobInput = document.querySelector('.popup__input_type_job');
 
 //Открытие попапа
 function visibilityPopup(){
-  popup.classList.add('popup_visibility');
-	nameInput.value = name.textContent;
-	jobInput.value = description.textContent;
+  popup.classList.add('popup_opened');
+  nameInput.value = name.textContent;
+  jobInput.value = description.textContent;
 }
 //закрытие попапа
 function novisibilityPopup(){
-	popup.classList.remove('popup_visibility');
+  popup.classList.remove('popup_opened');
 }
 
 //сохранения данных в попапе
 function handleFormSubmit (evt) {
-	evt.preventDefault();
-	name.textContent = nameInput.value;
-	description.textContent = jobInput.value;
-	novisibilityPopup();
+  evt.preventDefault();
+  name.textContent = nameInput.value;
+  description.textContent = jobInput.value;
+  novisibilityPopup();
 }
 
 

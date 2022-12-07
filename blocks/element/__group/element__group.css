@@ -12,12 +12,12 @@
   background: transparent url(../../../images/group.svg);
 }
 
-.element__group: hover {
+.element__group:hover {
   cursor: pointer;
   opacity:0.5;
 }
 
-.element__group: active {
+.element__group:active {
   background: transparent url(../../../images/group-black.svg);
   cursor: pointer;
     
