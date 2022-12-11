@@ -1,0 +1,5 @@
+.element__group_active {
+  background: transparent url(../../../../images/group-black.svg);
+  cursor: pointer;
+    
+}

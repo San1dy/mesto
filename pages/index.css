@@ -1,10 +1,15 @@
 @import url(../vendor/normalize.css);
+
 @import url(../fonts/fonts.css);
+
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
+
 @import url(../blocks/page/page.css);
+
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__text/footer__text.css);
+
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
@@ -12,12 +17,16 @@
 @import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__text/profile__text.css);
+
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/element/element.css);
 @import url(../blocks/element/__mask/elements__mask.css);
 @import url(../blocks/element/__rectangle/elements__rectangle.css);
 @import url(../blocks/element/__text/elements__text.css);
 @import url(../blocks/element/__group/element__group.css);
+@import url(../blocks/element/__group/_active/element__group_active.css);
+@import url(../blocks/element/__delete/element__delete.css);
+
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__submit/popup__submit.css);
@@ -27,3 +36,7 @@
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
+@import url(../blocks/popup/__img-container/popup__img-container.css);
+@import url(../blocks/popup/__increased/popup__increased.css);
+@import url(../blocks/popup/__text/popup__text.css);
+@import url(../blocks/popup/__img/popup__img.css);

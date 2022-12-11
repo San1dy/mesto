@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Mesto</title>
     <link rel="stylesheet" href="./pages/index.css">
+   
   </head>
   <body class="body">
     <div class="page">
       <header class="header">
         <img src="./images/header__logo.svg" class="header__logo" alt="Лого сайта">
       </header>
+     
       <main class="content">
+       
         <section class="profile">
           <img class="profile__avatar" src="./images/avatar.png" alt="Аватар пользователя">
           <div class="profile__info">
@@ -21,8 +24,9 @@
           </div>
           <button type="button" class="profile__add-button"></button>
         </section>
+       
         <section class="elements">
-          <article class="element">
+<!--          <article class="element">
             <img class="element__mask" src="./images/images2.jpg" alt="Долина огня">
             <div class="element__rectangle">
               <h2 class ="element__text">Долина огня</h2>
@@ -63,13 +67,16 @@
               <h2 class ="element__text">Дюны Броули</h2>
               <button type="button" class="element__group"></button>
             </div>
-          </article>
+          </article> -->
         </section>
+       
       </main>
+     
       <footer class="footer">
         <p class="footer__text">&copy;&nbsp;2022 Mesto Russia</p>
       </footer>
-      <div class="popup ">
+     
+      <div class="popup popup_type_profile">
         <div class="popup__container">
           <button type="button" class="popup__close"></button>
           <form action="index.html" method="get" class="popup__form" name="forn popap" novalidate>
@@ -85,7 +92,49 @@ name="name" minlength="2" maxlength="20" required placeholder="Жак-Ив Ку�
           </form>
         </div>
       </div>
+      
+      <div class="popup popup_type_card">
+        <div class="popup__container">
+          <button type="button" class="popup__close"></button>
+          <form action="index.html" method="get" class="popup__form" name="forn popap" novalidate>
+            <h2 class="popup__title">Новое место</h2>
+            <label  class="popup__label" >
+              <input id="name"  type="text" value="" class="popup__input popup__input_type_name"
+name="name" minlength="2" maxlength="30" required placeholder="Название">
+            </label>
+            <label  class="popup__label" >
+              <input id="job" type="text"  value="" class ="popup__input popup__input_type_job" name="job"  required placeholder="Ссылка на картинку">
+            </label>
+            <button type="submit" class="popup__submit" aria-label="Сохранить">Создать</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="popup popup_type_img">
+        <div class="popup__img-container">
+          <button type="button" class="popup__close"></button>
+          <div class="popup__increased">
+            <img class="popup__img">
+            <h3 class="popup__text"></h3>
+          </div>
+
+        </div>
+      </div>
+     
+     
+      
+     <template id="element-template">
+       <li class="element">
+         <img class="element__mask">
+         <div class="element__rectangle">
+           <h2 class="element__text"></h2>
+           <button type="button" class="element__group"></button>
+         </div>
+         <button type="button" class="element__delete"></button>
+       </li>
+     </template>
+     
     </div>
-    <script src="js/scripts.js"></script>
+    <script defer src="js/scripts.js"></script>
   </body>
 </html>
