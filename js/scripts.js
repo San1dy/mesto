@@ -1,67 +1,30 @@
 //обьявления переменных 
 const content = document.querySelector('.content');
+
 //переменные по изменению данных пользователя
 const editButton = content.querySelector('.profile__edit-button');
 const name = content.querySelector('.profile__name');
 const description = content.querySelector('.profile__text');
 const addButton = content.querySelector('.profile__add-button');
+
 //поиск сектора в которой добавляются карточки
 const elements = document.querySelector('.elements');
+
 //элементы принятые с попапа profile
 const profilePopup = document.querySelector('.popup_type_profile');
 const profilePopupClose = profilePopup.querySelector('.popup__close');
 const profilePopupForm = profilePopup.querySelector('.popup__form');
 const nameInput = profilePopup.querySelector('.popup__input_type_name');
 const jobInput = profilePopup.querySelector('.popup__input_type_job');
+
 //элементы принятые с попапа card
 const cardPopup = document.querySelector('.popup_type_card');
 const cardPopupClose = cardPopup.querySelector('.popup__close');
 const cardPopupForm = cardPopup.querySelector('.popup__form');
-const titleInput = cardPopup.querySelector('.popup__input_type_name');
-const linkInput = cardPopup.querySelector('.popup__input_type_job');
+let titleInput = cardPopup.querySelector('.popup__input_type_name');
+let linkInput = cardPopup.querySelector('.popup__input_type_job');
 
-
-
-
-//Открытие попапа profile
-function openPopupProfile(){
-  profilePopup.classList.add('popup_opened');
-  nameInput.value = name.textContent;
-  jobInput.value = description.textContent;
-}
-//Открытие попапа Card
-function openPopupCard(){
-  cardPopup.classList.add('popup_opened');
-}
-//закрытие попапа profile
-function notopenPopupProfile(){
-  profilePopup.classList.remove('popup_opened');
-}
-//закрытие попапа card
-function notopenPopupCard(){
-  cardPopup.classList.remove('popup_opened');
-}
-
-//сохранения данных в попапе
-function handleFormSubmit (evt) {
-  evt.preventDefault();
-  name.textContent = nameInput.value;
-  description.textContent = jobInput.value;
-  novisibilityPopup();
-}
-
-//функции открытия profile попапа
-editButton.addEventListener('click', openPopupProfile);
-//функция закрытия попапа profile
-profilePopupClose.addEventListener('click', notopenPopupProfile);
-//функция сохранения изменения попапа profile
-profilePopupForm.addEventListener('submit', handleFormSubmit);
-//функция открытия попапа Card
-addButton.addEventListener('click', openPopupCard);
-//функция закрытия попапа card
-cardPopupClose.addEventListener('click', notopenPopupCard);
-
-// массив предложеный яндексом
+// массив первых 
 const initialCards = [
   {
     name: 'Швейцария',
@@ -100,6 +63,53 @@ const initialCards = [
     link: 'https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80'
   }
 ];
+
+
+
+//Открытие попапа profile
+function openPopupProfile(){
+  profilePopup.classList.add('popup_opened');
+  nameInput.value = name.textContent;
+  jobInput.value = description.textContent;
+}
+//закрытие попапа profile
+function notopenPopupProfile(){
+  profilePopup.classList.remove('popup_opened');
+}
+
+//Открытие попапа Card
+function openPopupCard(){
+  cardPopup.classList.add('popup_opened');
+}
+
+//закрытие попапа card
+function notopenPopupCard(){
+  cardPopup.classList.remove('popup_opened');
+  titleInput.value='';
+  linkInput.value='';
+}
+
+
+//сохранения данных в попапе
+function handleFormSubmit (evt) {
+  evt.preventDefault();
+  name.textContent = nameInput.value;
+  description.textContent = jobInput.value;
+  notopenPopupProfile();
+}
+
+//функции открытия profile попапа
+editButton.addEventListener('click', openPopupProfile);
+//функция закрытия попапа profile
+profilePopupClose.addEventListener('click', notopenPopupProfile);
+//функция сохранения изменения попапа profile
+profilePopupForm.addEventListener('submit', handleFormSubmit);
+//функция открытия попапа Card
+addButton.addEventListener('click', openPopupCard);
+//функция закрытия попапа card
+cardPopupClose.addEventListener('click', notopenPopupCard);
+
+
 
 //добавление первых 6 карточек с массива
 let nameCard = 0;
@@ -153,21 +163,21 @@ const popupText = popupTypeImg.querySelector('.popup__text');
 function openPopupImg(title,link){
   popupText.textContent = title;
   popupImg.src = link;
-  console.log(popupText);
-  console.log(popupImg);
+  console.log(popupText.textContent);
+  console.log(popupImg.src);
   openImg();
 }
-//Открытие попапа Card
+
+//Открытие попапа IMG
 function openImg(){
   popupTypeImg.classList.add('popup_opened');
 }
 
 
-
-//закрытие попапа card
+//закрытие попапа IMG
 function notOpenImg(){
   popupTypeImg.classList.remove('popup_opened');
 }
 
-//функция закрытия попапа profile
+//функция закрытия попапа IMG
 popupCloseImg.addEventListener('click', notOpenImg);
