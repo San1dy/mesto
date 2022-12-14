@@ -94,18 +94,13 @@ editButton.addEventListener('click', () =>{
   nameInput.value = name.textContent;
   jobInput.value = description.textContent;
 });
-//кнопка закрытия popup profile
-//profilePopupClose.addEventListener('click', () => closePopup(profilePopup));
+
 //кнопка сохранения изменения попапа profile
 profilePopupForm.addEventListener('submit', handleProfileFormSubmit);
 
 //кнопка открытия попапа Card
 addButton.addEventListener('click', () => openPopup(cardPopup));
-//кнопка закрытия попапа card
-//cardPopupClose.addEventListener('click', () => closePopup(cardPopup));
 
-//функция закрытия попапа IMG
-//popupCloseImg.addEventListener('click', () => closePopup(popupTypeImg));
 
 //Закрытие попапов при нажатии на close
 const closeButtons = document.querySelectorAll('.popup__close');
@@ -125,66 +120,23 @@ function openPopupImg(title,link){
 
 
 
-
-/*const elementInitialCards = initialCards.forEach(function(item){
-  nameCard = item.name;
-  linkCard = item.link;
-  addElement(nameCard,linkCard);
-});
-
-//кнопка сохранения новой карточки
-cardPopupForm.addEventListener('submit',addnewCard);
-
-//добавление новой карточки
-function addnewCard (evt) {
-  evt.preventDefault();
-  const nameCard = titleInput.value;
-  const linkCard = linkInput.value;
-  addElement(nameCard,linkCard);
-  closePopup(cardPopup);
-  titleInput.value='';
-  linkInput.value='';
-}
-
-
-//функция добавления новой карточки
-function addElement(nameCard,linkCard){
-  const elementTemplate = document.querySelector('#element-template').content;
-  const elementCard = elementTemplate.querySelector('.element').cloneNode(true);
-  elementCard.querySelector('.element__mask').src = linkCard
-  elementCard.querySelector('.element__mask').alt = nameCard
-  elementCard.querySelector('.element__text').textContent = nameCard;
-  elementCard.querySelector('.element__group').addEventListener('click',function(evt){
-    evt.target.classList.toggle('element__group_active');
-  });
-  
-  elementCard.querySelector('.element__delete').addEventListener('click',function(evt){
-    evt.target.closest('.element').remove();
-  });
-  
-  const elementMask = elementCard.querySelector('.element__mask');
-  elementMask.addEventListener('click', () => openPopupImg(nameCard,linkCard));
-
-  
-  elements.prepend(elementCard);
-}*/
-
 initialCards.forEach(({ name, link}) => {
   addElement(name, link);
 })
 
 //кнопка сохранения новой карточки
-cardPopupForm.addEventListener('submit',addnewCard);
+cardPopupForm.addEventListener('submit',addNewCard);
 
 //добавление новой карточки
-function addnewCard (evt) {
+function addNewCard (evt) {
   evt.preventDefault();
   const nameCard = titleInput.value;
   const linkCard = linkInput.value;
   addElement(nameCard,linkCard);
   closePopup(cardPopup);
-  titleInput.value='';
-  linkInput.value='';
+  //titleInput.value='';
+  //linkInput.value='';
+  evt.target.reset();
 }
 
 
@@ -199,7 +151,6 @@ function createCard(nameCard, linkCard){
   const elementCard = elementTemplate.querySelector('.element').cloneNode(true);
   const elementMask = elementCard.querySelector('.element__mask');
   const elementText = elementCard.querySelector('.element__text');
-  const elementGroup = elementCard.querySelector('.element__group');
   elementMask.src = linkCard;
   elementMask.alt = nameCard;
   elementText.textContent = nameCard;
