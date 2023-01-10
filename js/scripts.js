@@ -1,6 +1,5 @@
 //обьявления переменных 
 const content = document.querySelector('.content');
-
 //переменные по изменению данных пользователя
 const editButton = content.querySelector('.profile__edit-button');
 const name = content.querySelector('.profile__name');
@@ -12,25 +11,22 @@ const elements = document.querySelector('.elements');
 
 //элементы принятые с попапа profile
 const profilePopup = document.querySelector('.popup_type_profile');
-//const profilePopupClose = profilePopup.querySelector('.popup__close');
 const profilePopupForm = profilePopup.querySelector('.popup__form');
 const nameInput = profilePopup.querySelector('.popup__input_type_name');
 const jobInput = profilePopup.querySelector('.popup__input_type_job');
 
 //элементы принятые с попапа card
 const cardPopup = document.querySelector('.popup_type_card');
-//const cardPopupClose = cardPopup.querySelector('.popup__close');
 const cardPopupForm = cardPopup.querySelector('.popup__form');
 const titleInput = cardPopup.querySelector('.popup__input_type_name');
 const linkInput = cardPopup.querySelector('.popup__input_type_job');
 
 //элементы принятые с попапа img
 const popupTypeImg = document.querySelector('.popup_type_img');
-//const popupCloseImg = popupTypeImg.querySelector('.popup__close');
 const popupImg = popupTypeImg.querySelector('.popup__img');
 const popupText = popupTypeImg.querySelector('.popup__text');
 
-// массив первых 
+// массив первых карточек 
 const initialCards = [
   {
     name: 'Швейцария',
@@ -73,10 +69,12 @@ const initialCards = [
 //открытие попапа
 function openPopup(popup){
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', escClose);
 }
 //закрытие попапа
 function closePopup(popup){
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', escClose);
 }
 
 
@@ -101,13 +99,25 @@ profilePopupForm.addEventListener('submit', handleProfileFormSubmit);
 //кнопка открытия попапа Card
 addButton.addEventListener('click', () => openPopup(cardPopup));
 
-
 //Закрытие попапов при нажатии на close
 const closeButtons = document.querySelectorAll('.popup__close');
 closeButtons.forEach((button) => {
   const popup = button.closest('.popup');
   button.addEventListener('click', () => closePopup(popup));
+  
+  
+  popup.addEventListener('mousedown',(event)=>{
+    if (event.target.classList.contains('popup')){
+      closePopup(popup);
+    }
+  })
 });
+
+function escClose(event){
+  if (event.key === 'Escape'){
+    closePopup(popupTypeImg);
+  }
+}
 
 function openPopupImg(title,link){
   popupText.textContent = title;
@@ -117,8 +127,6 @@ function openPopupImg(title,link){
   console.log(popupImg.src);
   openPopup(popupTypeImg);
 }
-
-
 
 initialCards.forEach(({ name, link}) => {
   addElement(name, link);
@@ -134,12 +142,8 @@ function addNewCard (evt) {
   const linkCard = linkInput.value;
   addElement(nameCard,linkCard);
   closePopup(cardPopup);
-  //titleInput.value='';
-  //linkInput.value='';
   evt.target.reset();
 }
-
-
 
 function addElement(nameCard, linkCard){
   const cardElement = createCard(nameCard, linkCard);
@@ -163,3 +167,17 @@ function createCard(nameCard, linkCard){
   elementMask.addEventListener('click', () => openPopupImg(nameCard,linkCard));
   return elementCard;
 }
+
+
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__submit',
+  invactiveButtonClass:'popup__submit_disabled',
+  inputErrorClass:'popup__input_type_error',
+  errorClass:'popup__input_type_visible'
+	
+};
+
+enableValidation(validationConfig);
+

@@ -16,13 +16,15 @@
   font-family: 'Inter','Arial',sans-serif;
   text-align: center;
   transition: all 0.4s ease-in-out;
-  margin-top: 18px;
+  margin-top: 18.34px;
 }
 
 .popup__submit:hover {
   opacity:0.8;
   cursor: pointer;
 }
+
+
 
 @media screen and (max-width:660px) {
   .popup__submit {
