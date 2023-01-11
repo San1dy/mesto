@@ -20,6 +20,7 @@ const cardPopup = document.querySelector('.popup_type_card');
 const cardPopupForm = cardPopup.querySelector('.popup__form');
 const titleInput = cardPopup.querySelector('.popup__input_type_name');
 const linkInput = cardPopup.querySelector('.popup__input_type_job');
+const submitCard = cardPopup.querySelector('.popup__submit');
 
 //элементы принятые с попапа img
 const popupTypeImg = document.querySelector('.popup_type_img');
@@ -69,12 +70,12 @@ const initialCards = [
 //открытие попапа
 function openPopup(popup){
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', escClose);
+  document.addEventListener('keydown', closeByEsc);
 }
 //закрытие попапа
 function closePopup(popup){
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', escClose);
+  document.removeEventListener('keydown', closeByEsc);
 }
 
 
@@ -113,9 +114,10 @@ closeButtons.forEach((button) => {
   })
 });
 
-function escClose(event){
+function closeByEsc(event){
   if (event.key === 'Escape'){
-    closePopup(popupTypeImg);
+    const openedPopup = document.querySelector('.popup_opened');
+		closePopup(openedPopup);
   }
 }
 
@@ -123,8 +125,6 @@ function openPopupImg(title,link){
   popupText.textContent = title;
   popupImg.src = link;
   popupImg.alt = title;
-  console.log(popupText.textContent);
-  console.log(popupImg.src);
   openPopup(popupTypeImg);
 }
 
@@ -143,6 +143,8 @@ function addNewCard (evt) {
   addElement(nameCard,linkCard);
   closePopup(cardPopup);
   evt.target.reset();
+	
+  disableSubmitButton(submitCard, validationConfig)
 }
 
 function addElement(nameCard, linkCard){
