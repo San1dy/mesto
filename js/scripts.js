@@ -5,7 +5,7 @@ cardPopup, cardPopupForm, titleInput, linkInput, submitCard,
 popupTypeImg, popupImg, popupText, validationConfig} from "./constants.js";
 import { Card } from './Card.js';
 import {openPopup, closePopup, closeByEsc} from './utils.js';
-import { FormValidator } from "./validate.js";
+import { FormValidator } from "./FormValidator.js";
 //открытие попапа
 
 
@@ -61,9 +61,7 @@ function addNewCard (evt) {
   closePopup(cardPopup);
   evt.target.reset();
 	
-  const resetSub = new FormValidator(validationConfig, cardPopupForm);
-  resetSub.resetSubmit();
-  //FormValidator.resetSubmit();
+  cardPopupValidate.resetSubmit();
 }
 
 function addElement(nameCard, linkCard){
