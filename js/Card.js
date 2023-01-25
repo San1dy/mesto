@@ -10,7 +10,7 @@ class Card {
 		return document.querySelector(this._templateSelector).content.querySelector('.element').cloneNode(true);
 	}
 
-	_openPopupImg () {
+	_handleImageClick () {
     popupText.textContent = this._nameCard;
     popupImg.src = this._linkCard;
     popupImg.alt = this._nameCard;
@@ -28,24 +28,18 @@ class Card {
 		return this._elementCard;
 	}
 
-	_toggleLike() {
-		this._elementCard.querySelector('.element__group').addEventListener('click',function(evt){
+	_toggleLike(evt) {
 			evt.target.classList.toggle('element__group_active');
-		});
 	}
-	_deleteCard() {
-		this._elementCard.querySelector('.element__delete').addEventListener('click',function(evt){
+	_deleteCard(evt) {
 			evt.target.closest('.element').remove();
-		});
 	}
-	_handleImageClick() {
-		this._elementMask.addEventListener('click', () => this._openPopupImg());
-	}
+	
 
 	_setEventListeners = () => {
-		this._toggleLike();
-		this._deleteCard();
-		this._handleImageClick();
+		this._elementCard.querySelector('.element__group').addEventListener('click', this._toggleLike);
+		this._elementCard.querySelector('.element__delete').addEventListener('click', this._deleteCard);
+		this._elementMask.addEventListener('click', () => this._handleImageClick());
 	}
 
 }
