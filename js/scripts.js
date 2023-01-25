@@ -1,3 +1,4 @@
+
 //импорт массива, переменных и конфига
 import { initialCards, content, editButton, name, description, addButton,
   elements, profilePopup, profilePopupForm, nameInput, jobInput,

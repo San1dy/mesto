@@ -10,12 +10,7 @@ class Card {
 		return document.querySelector(this._templateSelector).content.querySelector('.element').cloneNode(true);
 	}
 
-	_handleImageClick () {
-    popupText.textContent = this._nameCard;
-    popupImg.src = this._linkCard;
-    popupImg.alt = this._nameCard;
-    openPopup(popupTypeImg);
-	}
+
 
 	createCard() {
 		this._elementCard = this._getTemplate();
@@ -34,7 +29,12 @@ class Card {
 	_deleteCard(evt) {
 			evt.target.closest('.element').remove();
 	}
-	
+	_handleImageClick () {
+		popupText.textContent = this._nameCard;
+		popupImg.src = this._linkCard;
+		popupImg.alt = this._nameCard;
+		openPopup(popupTypeImg);
+		}
 
 	_setEventListeners = () => {
 		this._elementCard.querySelector('.element__group').addEventListener('click', this._toggleLike);
