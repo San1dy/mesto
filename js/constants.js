@@ -1,4 +1,4 @@
-// массив первых карточек 
+// массив данных для заполнения первых карточек 
 const initialCards = [
     {
       name: 'Швейцария',
@@ -38,36 +38,65 @@ const initialCards = [
     }
   ];
 
-//обьявления переменных 
-const content = document.querySelector('.content');
+//находим кнопку открытия попапа редактирования данных пользователя
+const editButton = document.querySelector('.profile__edit-button');
+//находим область всего попапа профиля
+const profilePopup = document.querySelector('.popup_type_profile');
+//находим инпут имени  формы попапа профиля
+const nameInput = profilePopup.querySelector('.popup__input_type_name');
+//находим инпут должности формы попапа профиля
+const jobInput = profilePopup.querySelector('.popup__input_type_job');
+//кнопка открытия формы добавления новой карточки
+const addButton = document.querySelector('.profile__add-button');
+//находим форму попапа профиля
+const profilePopupForm = profilePopup.querySelector('.popup__form');
+//находим область всего попапа добавления карточки
+const cardPopup = document.querySelector('.popup_type_card');
+//находим форму попапа добавления карточки
+const cardPopupForm = cardPopup.querySelector('.popup__form');
+
+
+
+
+//находим всю рабочую часть сайта 
+//const content = document.querySelector('.content');
 //переменные по изменению данных пользователя
-const editButton = content.querySelector('.profile__edit-button');
-const name = content.querySelector('.profile__name');
-const description = content.querySelector('.profile__text');
-const addButton = content.querySelector('.profile__add-button');
+
+//находим имя профиля на текщий момент  
+//const name = content.querySelector('.profile__name');
+//находим названия вида деятельности на данный момент
+//const description = content.querySelector('.profile__text');
+//находим кнопку сохранения изменения данных веденных в попапе профиля
+//const addButton = content.querySelector('.profile__add-button');
 
 //поиск сектора в которой добавляются карточки
-const elements = document.querySelector('.elements');
+//const elements = document.querySelector('.elements');
 
 //элементы принятые с попапа profile
-const profilePopup = document.querySelector('.popup_type_profile');
-const profilePopupForm = profilePopup.querySelector('.popup__form');
-const nameInput = profilePopup.querySelector('.popup__input_type_name');
-const jobInput = profilePopup.querySelector('.popup__input_type_job');
+
 
 //элементы принятые с попапа card
-const cardPopup = document.querySelector('.popup_type_card');
-const cardPopupForm = cardPopup.querySelector('.popup__form');
-const titleInput = cardPopup.querySelector('.popup__input_type_name');
-const linkInput = cardPopup.querySelector('.popup__input_type_job');
-const submitCard = cardPopup.querySelector('.popup__submit');
+//находим область всего попапа добавления карточки
+//const cardPopup = document.querySelector('.popup_type_card');
+
+//находим инпут названия места в форме попапа добавления карточки
+//const titleInput = cardPopup.querySelector('.popup__input_type_name');
+//находим инпут ссылки на картинку в форме попапа добавления карточки
+//const linkInput = cardPopup.querySelector('.popup__input_type_job');
+//находим кнопку сохранения данных для создания новой карточки(кнопка создания новой картчоки)
+//const submitCard = cardPopup.querySelector('.popup__submit');
 
 //элементы принятые с попапа img
-const popupTypeImg = document.querySelector('.popup_type_img');
-const popupImg = popupTypeImg.querySelector('.popup__img');
-const popupText = popupTypeImg.querySelector('.popup__text');
+//находим попап открытого окна карточки
+//const popupTypeImg = document.querySelector('.popup_type_img');
+//находим название места в попапе открытой карточки
+//const popupImg = popupTypeImg.querySelector('.popup__img');
+//находим ссылку картинки в попапе открытой карточки
+//const popupText = popupTypeImg.querySelector('.popup__text');
+//находим кнопку закрытия всех попапов по отдельности
+//const closeButtons = document.querySelectorAll('.popup__close');
 
-
+//конфиг для валидации ннпутов в формах
 const validationConfig = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -76,9 +105,7 @@ const validationConfig = {
   inputErrorClass:'popup__input_type_error',
   errorClass:'popup__input_type_visible'
 };
-
-  export {initialCards, content, editButton, name, description, addButton,
-    elements, profilePopup, profilePopupForm, nameInput, jobInput,
-  cardPopup, cardPopupForm, titleInput, linkInput, submitCard,
-  popupTypeImg, popupImg, popupText, validationConfig};
+// экспортируем дпеременные, массив, конфиг в дргуие файлы/классы
+  export { initialCards, editButton, addButton, nameInput, jobInput,
+  cardPopup, cardPopupForm, profilePopupForm, profilePopup, validationConfig };
 	

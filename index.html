@@ -41,7 +41,7 @@
             <h2 class="popup__title">Редактировать профиль</h2>
             <label  class="popup__label" >
               <input id="name"  type="text"  class="popup__input popup__input_type_name"
-name="name" minlength="2" maxlength="40" required placeholder="Имя">
+name="username" minlength="2" maxlength="40" required placeholder="Имя">
               <span id="name-error" class="name-error popup__input-error"></span>
             </label>
             <label  class="popup__label" >
@@ -53,7 +53,7 @@ name="name" minlength="2" maxlength="40" required placeholder="Имя">
         </div>
       </div>
       
-      <div class="popup popup_type_card">
+      <div id="cards-popup" class="popup popup_type_card">
         <div class="popup__container">
           <button type="button" class="popup__close"></button>
           <form  class="popup__form" name="popup__form" novalidate>
@@ -72,7 +72,7 @@ name="name" minlength="2" maxlength="30" required placeholder="Название"
         </div>
       </div>
       
-      <div class="popup popup_type_img">
+      <div id="image-popup" class="popup popup_type_img">
         <div class="popup__img-container">
           <button type="button" class="popup__close"></button>
           <div class="popup__increased">
@@ -102,6 +102,8 @@ name="name" minlength="2" maxlength="30" required placeholder="Название"
     <script defer type="module" src="js/constants.js"></script>
     <script defer type="module" src="js/Card.js"></script>
     <script defer type="module" src="js/utils.js"></script>
+    <script defer type="module" src="js/Section.js"></script>
+    <script defer type="module" src="js/Popup.js"></script>
   </body>
 </html>
  

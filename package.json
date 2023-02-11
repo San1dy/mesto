@@ -1,0 +1,22 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "Одностраничный сайт, который создан с использованием HTML, CSS, javaScript.\r Сайт написан при помощи flexbox, grid, css анимаций, медиазапросов. Реализована форма с применением JavaScript. Файловая структура организована по БЭМ. Структура проекта организована при помощи классов и методов.",
+  "main": "index.js",
+  "scripts": {
+    "build": "rd /s /q dist && webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/San1dy/mesto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/San1dy/mesto/issues"
+  },
+  "homepage": "https://github.com/San1dy/mesto#readme",
+  "devDependencies": {
+    "webpack-cli": "^5.0.1"
+  }
+}
