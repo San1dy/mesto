@@ -2,20 +2,20 @@
 //импорт массива, переменных и конфига
 import { initialCards, profilePopupForm, 
   nameInput, jobInput, cardPopupForm, editButton, 
-  addButton, validationConfig } from "./constants.js";
-import { Card } from './Card.js';
-import { FormValidator } from "./FormValidator.js";
-import { Section } from './Section.js';
-import { PopupWithImage } from './PopupWithImage.js';
-import { PopupWithForm } from './PopupWithForm.js';
-import { UserInfo } from './UserInfo.js';
+  addButton, validationConfig } from "../components/utils/constants.js";
+import { Card } from '../components/Card.js';
+import { FormValidator } from "../components/FormValidator.js";
+import { Section } from '../components/Section.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { UserInfo } from '../components/UserInfo.js';
+import './index.css';
 
 
 //Заносим данные в форму попапа редактирования профиля
 function addDataEditProfileForm({username, job}){
   nameInput.value = username;
   jobInput.value = job;
-  console.log(nameInput.value);
 };
 
 
@@ -107,9 +107,13 @@ const cardPopupValidate = new FormValidator(validationConfig, cardPopupForm);
 cardPopupValidate.enableValidation();
 
 
+console.log('Hello, World!')
 
+const numbers = [2,3,5];
 
+const doubledNumbers = numbers.map(number => number * 2);
 
+console.log(doubledNumbers);
 
 //Данные с странички передаются на форму редактирования профиля 
   //export function addDataEditProfileForm () {

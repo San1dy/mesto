@@ -1,7 +1,10 @@
 class Card {
-	constructor(data, templateSelector, handleImageClick) {
+	constructor(data, templateSelector, handleImageClick ) {
+		console.log(data);
 		this._name = data.name;
 		this._link = data.link;
+		//console.log(this._name);
+		//console.log(this._link);
 		this._templateSelector = templateSelector;
 		this._handleImageClick = handleImageClick;
     }

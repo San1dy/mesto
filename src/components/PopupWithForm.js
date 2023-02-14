@@ -14,6 +14,8 @@ class PopupWithForm extends Popup {
         this._popupList.forEach(input => {
             formValues[input.name] = input.value;
         });
+        console.log(formValues);
+        console.log(formValues.job);
         return formValues;
     }
 //добавляем обработчик клика и обработчик самбита формы

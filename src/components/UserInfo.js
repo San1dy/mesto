@@ -3,7 +3,6 @@ class UserInfo {
     constructor({ username, job}) {
         this._username = document.querySelector(username);
         this._job = document.querySelector(job);
-        console.log(this._username);
     }
 //метод возвращает обьект с данными пользователя
     getUserInfo() {
@@ -17,7 +16,6 @@ class UserInfo {
     setUserInfo({username, job}) {
         this._username.textContent = username;
         this._job.textContent = job;
-        console.log(this._username.textContent);
     }
 }
 

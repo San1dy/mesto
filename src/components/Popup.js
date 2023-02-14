@@ -14,7 +14,7 @@ class Popup {
       }
 //метод закрытия на ESC
     _handleEscClose(event){
-        event.preventDefault();
+        //event.preventDefault();
         if (event.key === 'Escape'){
           this.close();
         }
