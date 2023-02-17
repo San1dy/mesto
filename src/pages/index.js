@@ -11,15 +11,11 @@ import { PopupWithForm } from '../components/PopupWithForm.js';
 import { UserInfo } from '../components/UserInfo.js';
 import './index.css';
 
-
 //Заносим данные в форму попапа редактирования профиля
 function addDataEditProfileForm({username, job}){
   nameInput.value = username;
   jobInput.value = job;
 };
-
-
-
 
 //Получение данных пользователя
 const userInfo = new UserInfo({
@@ -42,13 +38,25 @@ popupRedactProfile.setEventListeners();
 
 //обработчик кнопки редактирования профиля
 editButton.addEventListener('click', () => {
+infoUser()});
+
+  //const info = userInfo.getUserInfo();
+  //addDataEditProfileForm({
+    //username: info.username,
+    //job: info.job
+  //});
+  //popupRedactProfile.open();
+//});
+
+const infoUser = function () {
   const info = userInfo.getUserInfo();
   addDataEditProfileForm({
     username: info.username,
     job: info.job
   });
   popupRedactProfile.open();
-});
+  profilePopupValidate.resetSubmit();
+}
 
 const handleImageClick = function ( name, image) {
   popupZoom.open(name, image);
@@ -72,17 +80,9 @@ popupAddCard.setEventListeners();
 
 //слушатель на икноку добавления карточки
 addButton.addEventListener('click',() => {
-  cardPopupValidate.disableSubmitButton();
+  cardPopupValidate.resetSubmit();
   popupAddCard.open();
 })
-
-
-
-
-
-
-
-
 
 //отрисовка начальных карточек на странице из массива 
 const cardsList = new Section ({
@@ -107,13 +107,11 @@ const cardPopupValidate = new FormValidator(validationConfig, cardPopupForm);
 cardPopupValidate.enableValidation();
 
 
-console.log('Hello, World!')
 
-const numbers = [2,3,5];
 
-const doubledNumbers = numbers.map(number => number * 2);
 
-console.log(doubledNumbers);
+
+
 
 //Данные с странички передаются на форму редактирования профиля 
   //export function addDataEditProfileForm () {

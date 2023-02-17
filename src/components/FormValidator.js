@@ -25,7 +25,7 @@ class FormValidator {
     if (inputElement.validity.valid){
       this._hideInputError(inputElement);
     } else {
-      this._showInputError(inputElement);
+      this._showInputError(inputElement, inputElement.validationMessage);
     }
   }
   //метод обхода input на ошибки
@@ -53,10 +53,10 @@ class FormValidator {
     }
   }
   
-  //resetSubmit() {
-    //this._inputList.forEach((inputElement) => { this._hideInputError(inputElement);})
-   // this.toggleButtonState();
-  //}
+  resetSubmit() {
+    this._inputList.forEach((inputElement) => { this._hideInputError(inputElement);})
+    this._toggleButtonState();
+  }
 
 
   _setEventListeners() {
