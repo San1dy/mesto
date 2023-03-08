@@ -1,18 +1,21 @@
 class Card {
-	constructor(data, templateSelector, handleImageClick ) {
-		console.log(data);
+	constructor({data, templateSelector, userId, api}, handleImageClick, handleDeleteImageClick ) {
 		this._name = data.name;
 		this._link = data.link;
-		//console.log(this._name);
-		//console.log(this._link);
+		this._likes = data.likes;
+		this._cardId = data._id;
+		this._cardOwnerId = data.owner._id;
 		this._templateSelector = templateSelector;
+		this._userId = userId;
+		this._api = api;
 		this._handleImageClick = handleImageClick;
+		this._handleDeleteImageClick = handleDeleteImageClick;
     }
-
+	//возвращает разметку карточки
 	_getTemplate(){
-		return document.querySelector(this._templateSelector).content.querySelector('.element').cloneNode(true);
+		this._cardElement = document.querySelector(this._templateSelector).content.querySelector('.element').cloneNode(true);
+		return this._cardElement;
 	}
-
 
 //метод создания карточки
 	createCard() {
@@ -22,34 +25,61 @@ class Card {
     	this._elementMask.src = this._link;
   		this._elementMask.alt = this._name;
   		this._elementText.textContent = this._name;
+		this._likeButton = this._elementCard.querySelector('.element__group');
+		this._likeNumber = this._elementCard.querySelector('.element__likes-number');
+		this._deleteButton = this._elementCard.querySelector('.element__delete');
+		this._isCardLiked();
+		this._hasDeleteButton();
+		this._likeNumber.textContent = this._likes.length;
 		this._setEventListeners();
 		return this._elementCard;
 	}
 
-// Метод лайка
-	_toggleLike(evt) {
-			evt.target.classList.toggle('element__group_active');
-	}
-
-// Метод удаления карточки на икноку корзинки
-	_deleteCard(evt) {
-			evt.target.closest('.element').remove();
-	}
-
-	//Сейчас долен передаваться данный метод как функция с класса Popup
-	//Метод открытия картинки в отдельном попапе
-	//_handleImageClick () {
-		//popupText.textContent = this._nameCard;
-		//popupImg.src = this._linkCard;
-		//popupImg.alt = this._nameCard;
-		//openPopup(popupTypeImg);
-		//}
-
 //обработчики удаления::лайка::клика по картинке
 	_setEventListeners = () => {
-		this._elementCard.querySelector('.element__group').addEventListener('click', this._toggleLike);
-		this._elementCard.querySelector('.element__delete').addEventListener('click', this._deleteCard);
+		this._likeButton.addEventListener('click', () => {this._handleLikeCard()});
+		this._deleteButton.addEventListener('click', () => {this._handleDeleteImageClick(this._cardElement, this._cardId);} );
 		this._elementMask.addEventListener('click', () => this._handleImageClick(this._link, this._name));
+	}
+
+	//проверка. стоит ли лайк на карточке
+	_isCardLiked() {
+		if (this._likes.some((user) => {
+			return this._userId === user._id;
+		})) {
+			this._likeButton.classList.add('element__group_active');
+		}
+	}
+
+	//поставить/удалить лайк, изменение количества лайков
+	_handleLikeCard() {
+		console.log(this._likeButton);
+		if (this._likeButton.classList.contains('element__group_active')) {
+			this._api.deleteLike(this._cardId)
+				.then((res) => {
+					this._likeButton.classList.remove('element__group_active');
+					this._likeNumber.textContent = res.likes.length;
+				})
+				.catch((err) => {
+					console.log(`Ошибка: ${err}`);
+				});
+		} else {
+			this._api.clickLike(this._cardId)
+				.then((res) => {
+					this._likeButton.classList.add('element__group_active');
+					this._likeNumber.textContent = res.likes.length;
+				})
+				.catch((err) => {
+					console.log(`Ошибка: ${err}`);
+				});
+		}
+	}
+
+	//проверяем владельца карточки и убираем кнопку Delete
+	_hasDeleteButton() {
+		if (this._userId !== this._cardOwnerId) {
+			this._deleteButton.remove();
+		}
 	}
 
 }
