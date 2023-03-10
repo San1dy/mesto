@@ -7,7 +7,7 @@ class Section {
 //метод отвечает за отрисовку всех элементов
     renderItems(data) {
         //console.log(data);
-        data.forEach(item => this._renderer(item));
+        data.reverse().forEach(item => this._renderer(item));
         //console.log(item);
     }
 //  принимаем элемент и вставляем его в контейнер

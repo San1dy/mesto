@@ -46,10 +46,34 @@ const handleImageClick = function ( name, link) {
 
 //открытие попапа удаления карточки при нажатии на корзину
 const handleDeleteImageClick = function (cardElement, cardId) {
-  console.log(cardElement);
   deleteCardPopup.open(cardElement, cardId);
 }
+/*
+//поставка лайка
+const handleSetLike = function (cardId, cardElement) {
+  console.log(cardElement);
+  api.clickLike(cardId)
+    .then((data) => {
+      console.log(cardElement);
+      cardElement.handleLikeCard(data);
+    })
+    .catch((err) => {
+      console.log(`Ошибка: ${err}`);
+    });
+}
 
+//удаление лайка
+const handleDeleteLike = function (cardId, cardElement) {
+  api.deleteLike(cardId)
+    .then((data) => {
+      console.log(cardElement);
+      cardElement.handleLikeCard(data);
+    })
+    .catch((err) => {
+      console.log(`Ошибка: ${err}`);
+    });
+}
+*/
 //отрисовка начальных карточек на странице из массива 
 const cardsList = new Section ({
   renderer: (cardElement) => {
@@ -63,7 +87,25 @@ const addElement = function (cardData) {
     data: cardData,
     templateSelector: '.element-template',
     userId: userId,
-    api: api},
+    handleSetLike: (cardId) => {
+      api.clickLike(cardId)
+      .then((data) => {
+        cardElement.handleLike(data);
+      })
+      .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+      });
+    },
+    handleDeleteLike: (cardId) => {
+      api.deleteLike(cardId)
+      .then((data) => {
+        cardElement.handleLike(data);
+      })
+      .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+      });
+    }
+  },
     handleImageClick,
     handleDeleteImageClick
     );
@@ -174,7 +216,8 @@ const editAvatarPopup = new PopupWithForm({
     editAvatarPopup.loading(true);
     api.editAvatar(data)
       .then((data) => {
-        avatar.src = data.avatar;
+        //avatar.src = data.avatar;
+        userInfo.setUserInfo(data);
         editAvatarPopup.close();
       })
       .catch((err) => {

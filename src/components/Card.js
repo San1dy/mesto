@@ -1,5 +1,5 @@
 class Card {
-	constructor({data, templateSelector, userId, api}, handleImageClick, handleDeleteImageClick ) {
+	constructor({data, templateSelector, userId, handleSetLike, handleDeleteLike }, handleImageClick, handleDeleteImageClick) {
 		this._name = data.name;
 		this._link = data.link;
 		this._likes = data.likes;
@@ -7,9 +7,11 @@ class Card {
 		this._cardOwnerId = data.owner._id;
 		this._templateSelector = templateSelector;
 		this._userId = userId;
-		this._api = api;
+		//this._api = api;
 		this._handleImageClick = handleImageClick;
 		this._handleDeleteImageClick = handleDeleteImageClick;
+		this._handleSetLike = handleSetLike;
+		this._handleDeleteLike = handleDeleteLike;
     }
 	//возвращает разметку карточки
 	_getTemplate(){
@@ -52,6 +54,21 @@ class Card {
 	}
 
 	//поставить/удалить лайк, изменение количества лайков
+	handleLike(data) {
+		this._likes = data.likes;
+		this._likeNumber.textContent = this._likes.length;
+		this._likeButton.classList.toggle('element__group_active');
+	  }
+	
+
+	  _handleLikeCard() {
+		if (this._likeButton.classList.contains('element__group_active')) {
+			this._handleDeleteLike(this._cardId);
+		} else {
+			this._handleSetLike(this._cardId);
+		}
+	  }
+	/*
 	_handleLikeCard() {
 		console.log(this._likeButton);
 		if (this._likeButton.classList.contains('element__group_active')) {
@@ -74,7 +91,7 @@ class Card {
 				});
 		}
 	}
-
+*/
 	//проверяем владельца карточки и убираем кнопку Delete
 	_hasDeleteButton() {
 		if (this._userId !== this._cardOwnerId) {
